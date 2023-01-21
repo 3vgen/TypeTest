@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using System.Reflection.PortableExecutable;
+
 
 namespace TypeTest
 {
@@ -17,14 +21,14 @@ namespace TypeTest
         public void ReadJson()
         {
             StreamReader reader = new StreamReader(path);
-            users = JsonSerializer.Deserialize<List<User>>(reader.ReadToEnd());
+            users = JsonConvert.DeserializeObject<List<User>>(reader.ReadToEnd());
             reader.Close();
         }
        
         public void WriteJson()
         {
-            //File.WriteAllText(path, string.Empty);
-            string json = JsonSerializer.Serialize(users, typeof(List<User>));
+            string json = JsonConvert.SerializeObject(users);
+
             StreamWriter writer = new StreamWriter(path);
             writer.Write(json);
             writer.Close();

@@ -8,17 +8,18 @@ namespace TypeTest
     class Texts
     {
         Random random = new Random();
-        string[] texsts;
+        string texsts;
         StreamReader read;
         public Texts()
         {
-            read = new StreamReader(@"C:\Users\МБОУ ЦО 2\source\repos\TypeTest\TypeTest\TextSamples.txt");
-            texsts = read.ReadToEnd().Split('#');
+            read = new StreamReader(@"/Users/evgenijsemin/Desktop/GIT/TypeTest/TypeTest/TextSamples.txt");
+            texsts = read.ReadToEnd();
         }
         public string GetText()
         {
             string text;
-            text = texsts[random.Next(texsts.Length)];
+            text = texsts;
+            text.Replace(Environment.NewLine, " ");
             return text;
         }
 

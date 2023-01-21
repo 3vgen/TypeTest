@@ -9,7 +9,9 @@ namespace TypeTest
     {
         static void Main(string[] args)
         {
-            ScoreTable scoreTable = new ScoreTable(@"C:\Users\МБОУ ЦО 2\Desktop\users.json");
+
+            //Console.OutputEncoding = System.Text.Encoding.BigEndianUnicode;
+            ScoreTable scoreTable = new ScoreTable(@"/Users/evgenijsemin/Desktop/person.json");
             ConsoleKeyInfo kk = new ConsoleKeyInfo();
             //Type type = new Type("dsafgdsln dhakjsh dsajkdh kasjhd kjash", 5);
             Type type;
@@ -17,7 +19,7 @@ namespace TypeTest
             User user;
             while (true)
             {
-                type = new Type(text.GetText(), 60);
+                type = new Type(text.GetText(), 30);
                 Console.Write("Введите ваше имя: ");
                 string name = Console.ReadLine();
                 Console.Clear();
